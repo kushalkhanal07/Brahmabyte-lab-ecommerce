@@ -18,6 +18,7 @@ import Link from 'next/link'
 
 export default function Product() {
 
+  const { productData, setProductData } = useProduct()
   const { data, isError, isLoading } = useQuery({
     queryKey: ["product"],
     queryFn: fetchProducts
@@ -26,7 +27,6 @@ export default function Product() {
   if (isLoading) return <div className='flex justify-center items-center h-[30em]'> <Loader className='animate-spin' /> </div>;
   if (isError) return <p>Error fetching users</p>;
 
-  const { productData, setProductData } = useProduct()
 
   function SaveData(Id: number) {
     const product = data?.find((item) => {

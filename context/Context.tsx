@@ -33,7 +33,7 @@ export function useProduct() {
 export default function ProductProvider({ children }: { children: React.ReactNode }) {
   const [productData, setProductData] = useState<Product[]>([])
   const [count, setCount] = useState<number>(0)
-  const [order, setAddOrder] = useState<OrderData[]>([])
+  const [order, setAddOrder] = useState<OrderData[] >([])
   const [total, setTotal] = useState<number>(0)
   const [show, setShow] = useState<Boolean>(false)
   const [login, setAuthenticate] = useState<AuthData | null>(null);

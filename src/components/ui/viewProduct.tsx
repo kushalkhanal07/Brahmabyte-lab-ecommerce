@@ -64,7 +64,7 @@ export default function Viewdata({ id }: { id: string }) {
                 </div>
 
                 <div className="text-4xl font-bold text-green-600 mb-6">
-                  ${data?.price.toFixed(2)}
+                  ${data?.price?.toFixed(2)}
                 </div>
 
                 <Separator className="mb-6" />
