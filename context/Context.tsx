@@ -20,10 +20,13 @@ export interface ListProductData {
 
 }
 
-export const ProductContext = createContext<ListProductData | string>("");
+const ProductContext = createContext<ListProductData | undefined>(undefined);
 
 export function useProduct() {
-  const context = useContext(ProductContext)
+  let context = useContext(ProductContext)
+  if (!context) {
+    throw new Error("useProduct must be used within a ProductProvider");
+  }
   return context
 }
 

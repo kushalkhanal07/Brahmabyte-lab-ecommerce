@@ -30,17 +30,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
+        <ProductProvider>
           <Query>
-          <ProductProvider>
-        <div>
-            <Navbar />
-            <div className="max-w-[1450px] mx-auto">
-              {children}
+            <div>
+              <Navbar />
+              <div className="max-w-[1450px] mx-auto">
+                {children}
+              </div>
             </div>
-          
-        </div>
-          </ProductProvider>
           </Query>
+        </ProductProvider>
       </body>
     </html>
   );

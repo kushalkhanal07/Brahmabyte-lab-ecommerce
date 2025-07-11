@@ -10,7 +10,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Page() {
-  const { order }: any = useProduct()
+  const { order } = useProduct()
   return (
     <div>
       <AdminHeader handleLogout={() => { }} />
@@ -63,7 +63,6 @@ export default function Page() {
                 <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors">
                   <div className="flex-1">
                     <div className="flex items-center space-x-4 mb-2">
-                      <h3 className="font-semibold text-lg">Order #{order.id}</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">

@@ -26,7 +26,7 @@ export default function Product() {
   if (isLoading) return <div className='flex justify-center items-center h-[30em]'> <Loader className='animate-spin' /> </div>;
   if (isError) return <p>Error fetching users</p>;
 
-  const { productData, setProductData }: any = useProduct()
+  const { productData, setProductData } = useProduct()
 
   function SaveData(Id: number) {
     const product = data?.find((item) => {
@@ -41,8 +41,7 @@ export default function Product() {
         return [...prevValue, { ...product, quantity: 1 }]
       })
     } else {
-      console.log("2")
-      productData[index].quantity = productData[index].quantity + 1
+      productData[index].quantity = productData[index].quantity ? productData[index].quantity + 1 : 1
       setProductData([...productData])
     }
 

@@ -25,7 +25,7 @@ type CheckoutFormData = z.infer<typeof checkoutSchema>;
 
 export default function Cart() {
   const router = useRouter();
-  const { count, productData, setProductData, setAddOrder, total, show, setShow }: any = useProduct()
+  const { count, productData, setProductData, setAddOrder, total, show, setShow } = useProduct()
   console.log(productData)
   const {
     register,
@@ -41,7 +41,7 @@ export default function Cart() {
     setShow(true)
     await new Promise(resolve => setTimeout(resolve, 1000));
 
-    setAddOrder((prevValue:any) => {
+    setAddOrder((prevValue: any) => {
       return [...prevValue, {
         customerName: data.name,
         customerEmail: data.email,
@@ -70,7 +70,7 @@ export default function Cart() {
     })
 
     router.push("/success");
-    
+
   };
 
   function handleDelete(id: number) {
@@ -92,7 +92,7 @@ export default function Cart() {
       })
       setProductData(finalProduct)
     } else {
-      productData[index].quantity -= 1
+      productData[index]?.quantity ? productData[index].quantity -= 1 : null
       setProductData([...productData])
     }
 

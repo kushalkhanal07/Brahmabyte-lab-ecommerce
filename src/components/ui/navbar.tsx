@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import {ShoppingCart} from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { Button } from './button'
 import { useEffect } from 'react'
 import Image from 'next/image'
@@ -9,22 +9,24 @@ import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const pathname = usePathname()
-  const { productData, count, setCount }: any = useProduct()
+  const { productData, count, setCount } = useProduct()
   const Data = productData?.map((items: any) => {
     return items.quantity
   })
-  const sum = Data.length ? Data?.reduce((acc: number, current: number) => {
+  const sum = Data?.length ? Data?.reduce((acc: number, current: number) => {
     return acc + current
   }) : ""
+
+
+  if (pathname === '/auth/login' || pathname === 'auth/register' || pathname === '/admin/dashboard' || pathname === '/admin/products' || pathname === '/admin/orders') {
+    return null;
+  }
 
   useEffect(() => {
     setCount(sum)
 
   }, [sum, setCount])
 
-  if (pathname === '/auth/login' || pathname === 'auth/register' || pathname === '/admin/dashboard' || pathname === '/admin/products' || pathname === '/admin/orders') {
-    return null;
-  }
   return (
     <div className=" bg-gradient-to-br from-blue-50 to-indigo-100">
       <header className="bg-white shadow-sm border-b">
