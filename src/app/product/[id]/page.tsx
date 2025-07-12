@@ -1,14 +1,15 @@
 // @ts-ignore
 import ViewProduct from '@/components/ui/viewProduct'
 
-interface check{
-  id: string
-}
+type PageProps = {
+  params: Promise<{ id: string }>; // params is now a Promise
+};
 
-export default async function Page({ params }: { params: check }) {
+export default async function Page({ params }: PageProps) {
+  const { id } = await params;
   return (
     <div>
-      <ViewProduct id={params.id} />
+      <ViewProduct id={id} />
     </div>
   );
 }
